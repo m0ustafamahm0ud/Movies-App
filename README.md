@@ -1,4 +1,4 @@
-# movie_app
+# Movies App
 
 Flutter App With Clean Architecture
 
