@@ -6,6 +6,7 @@ import 'core/utils/services.dart';
 void main() {
   ServiceLocator().init();
   // make some changes to the code
+  // make another changes again
   runApp(const MyApp());
 }
 
