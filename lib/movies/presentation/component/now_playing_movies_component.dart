@@ -13,6 +13,7 @@ import '../../../core/utils/services.dart';
 import '../controller/now_playing_movies/now_playing_movies_bloc.dart';
 import '../controller/now_playing_movies/now_playing_movies_event.dart';
 import '../controller/now_playing_movies/now_playing_movies_state.dart';
+import '../screens/movie_detail_screen.dart';
 
 class NowPlayingMoviesComponent extends StatelessWidget {
   const NowPlayingMoviesComponent({
@@ -30,7 +31,7 @@ class NowPlayingMoviesComponent extends StatelessWidget {
           child: CarouselSlider(
             options: CarouselOptions(
               autoPlay: true,
-              autoPlayAnimationDuration: Duration(seconds: 1),
+              autoPlayAnimationDuration: const Duration(seconds: 1),
               autoPlayCurve: Curves.easeInOutQuart,
               height: 400.0,
               viewportFraction: 1.0,
@@ -41,7 +42,9 @@ class NowPlayingMoviesComponent extends StatelessWidget {
                 return GestureDetector(
                   key: const Key('openMovieMinimalDetail'),
                   onTap: () {
-                    /// TODO : NAVIGATE TO MOVIE DETAILS
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MovieDetailScreen(movie: item),
+                    ));
                   },
                   child: Stack(
                     children: [

@@ -9,6 +9,7 @@ import '../../../core/utils/services.dart';
 import '../controller/popular_movies/popular_movies_bloc.dart';
 import '../controller/popular_movies/popular_movies_event.dart';
 import '../controller/popular_movies/popular_movies_state.dart';
+import '../screens/movie_detail_screen.dart';
 
 class PopularMoviesComponent extends StatelessWidget {
   const PopularMoviesComponent({super.key});
@@ -34,7 +35,10 @@ class PopularMoviesComponent extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8.0),
                   child: InkWell(
                     onTap: () {
-                      /// TODO : NAVIGATE TO  MOVIE DETAILS
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => MovieDetailScreen(
+                            movie: state.popularMovies[index]),
+                      ));
                     },
                     child: ZoomIn(
                       delay: Duration(milliseconds: index * 15),
